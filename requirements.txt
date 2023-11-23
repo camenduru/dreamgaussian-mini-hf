@@ -1,0 +1,35 @@
+wheel
+tqdm
+rich
+ninja
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+opencv-python
+imageio
+imageio-ffmpeg
+omegaconf
+
+https://download.pytorch.org/whl/cu118/torch-2.1.1%2Bcu118-cp310-cp310-linux_x86_64.whl
+https://download.pytorch.org/whl/cu118/torchvision-0.16.1%2Bcu118-cp310-cp310-linux_x86_64.whl
+https://download.pytorch.org/whl/cu118/torchaudio-2.1.1%2Bcu118-cp310-cp310-linux_x86_64.whl
+einops
+plyfile
+pygltflib
+
+# for gui
+dearpygui
+
+# for stable-diffusion
+huggingface_hub
+diffusers == 0.21.4 # fix loading zero123 temporarily
+accelerate
+transformers
+
+rembg[gpu,cli]
+
+# gradio demo
+gradio
+gradio_model3dgs
