@@ -32,6 +32,9 @@ def run(image_block: Image.Image):
 
 if __name__ == "__main__":
     title = "DreamGaussian Mini"
+    description = '''
+    DreamGaussian Mini is a lightweight version of [DreamGaussian](https://github.com/dylanebert/gsplat.js) that runs the first optimization step and renders it with [gradio-model3dgs](https://pypi.org/project/gradio-model3dgs), a gradio custom component based on [gsplat.js](https://github.com/dylanebert/gsplat.js).
+    '''
 
     example_folder = os.path.join(os.path.dirname(__file__), 'data')
     example_fns = os.listdir(example_folder)
@@ -41,7 +44,7 @@ if __name__ == "__main__":
     with gr.Blocks(title=title) as demo:
         with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("# " + title)
+                gr.Markdown("# " + title + "\n" + description)
         
         with gr.Row(variant="panel"):
             with gr.Column(scale=5):
