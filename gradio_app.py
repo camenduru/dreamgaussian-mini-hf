@@ -6,7 +6,7 @@ import subprocess
 
 
 try:
-    from simple_knn._C import distCUDA2
+    import simple_knn
 except ImportError:
     os.system("pip install -e ./simple-knn")
 
@@ -32,8 +32,18 @@ def run(image_block: Image.Image):
 
 if __name__ == "__main__":
     title = "DreamGaussian Mini"
-    description = '''
+    description = '''    
     DreamGaussian Mini is a lightweight version of [DreamGaussian](https://github.com/dylanebert/gsplat.js) that runs the first optimization step and renders it with [gradio-model3dgs](https://pypi.org/project/gradio-model3dgs), a gradio custom component based on [gsplat.js](https://github.com/dylanebert/gsplat.js).
+    
+    For faster inference without waiting in a queue, you may duplicate the space and upgrade to a GPU in the settings.
+    '''
+    css = '''
+    #duplicate-button {
+        margin: auto;
+        color: white;
+        background: #1565c0;
+        border-radius: 100vh;
+    }
     '''
 
     example_folder = os.path.join(os.path.dirname(__file__), 'data')
@@ -41,7 +51,8 @@ if __name__ == "__main__":
     example_fns.sort()
     examples_full = [os.path.join(example_folder, x) for x in example_fns if x.endswith('.png')]
 
-    with gr.Blocks(title=title) as demo:
+    with gr.Blocks(title=title, css=css) as demo:
+        gr.DuplicateButton(value="Duplicate Space for private use", elem_id="duplicate-button")
         with gr.Row():
             with gr.Column(scale=1):
                 gr.Markdown("# " + title + "\n" + description)
