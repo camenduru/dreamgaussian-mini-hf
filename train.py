@@ -28,6 +28,7 @@ class SplatModelTrainer:
         
     def load_input(self, file):
         img = cv2.imread(file, cv2.IMREAD_UNCHANGED)
+        img = cv2.flip(img, 0)
         if img.shape[-1] == 3:
             if self.bg_remover is None:
                 self.bg_remover = rembg.new_session()
